@@ -1,0 +1,81 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<iasettings>
+  <projectproperties>
+    <manufacturer>twhit_000</manufacturer>
+    <productname>flite_sapi</productname>
+    <productversion>1.0.0</productversion>
+    <productcode>{e379ce37-9bb6-4471-8ed2-8ffb8655eba8}</productcode>
+    <upgradecode>{273c6bbf-32b2-46eb-b655-eb55627fa8ee}</upgradecode>
+    <language>0</language>
+    <languagename>English</languagename>
+  </projectproperties>
+  <summary>
+    <title>flite_sapi</title>
+    <subject>flite_sapi</subject>
+    <author>twhit_000</author>
+    <summarycomments>flite_sapi</summarycomments>
+    <revisioncode>{2a416a5a-9c3a-4e9c-9d01-c435fc2d1a85}</revisioncode>
+    <uacelevation>highestAvailable</uacelevation>
+  </summary>
+  <addremove>
+    <publishername>twhit_000</publishername>
+    <contactname>twhit_000</contactname>
+    <helplink>http://www.mywebsite.com</helplink>
+    <productupdatelink>http://www.mywebsite.com</productupdatelink>
+    <addremovecomments>All Rights Reserved</addremovecomments>
+    <iconfile />
+  </addremove>
+  <codegen>
+    <generateincludefiles>0</generateincludefiles>
+    <generatefeatures>1</generatefeatures>
+    <refreshscript>0</refreshscript>
+  </codegen>
+  <compilervariables>
+    <variables />
+  </compilervariables>
+  <build>
+    <buildtype>0</buildtype>
+    <buildasmsi>False</buildasmsi>
+    <cachesources>1</cachesources>
+  </build>
+  <targetfolders />
+  <files>
+    <filedetails filename="C:\Users\twhit_000\Pictures\Documents\tim\hear2read\Hear2ReadRepository\sapi\Win32\Debug\FliteCMUKalDiphone.dll" targetlocation="$TARGETDIR$" type="3" generatenativeimage="0" registerassembly="0" runinstallerclass="0" createshortcut="0" runprogram="0" installfilecommand="1" />
+    <filedetails filename="C:\Users\twhit_000\Pictures\Documents\tim\hear2read\Hear2ReadRepository\sapi\Win32\Release\FliteTTSEngineObj.lib" targetlocation="$TARGETDIR$" type="3" generatenativeimage="0" registerassembly="0" runinstallerclass="0" createshortcut="0" runprogram="0" installfilecommand="1" />
+    <filedetails filename="C:\Users\twhit_000\Pictures\Documents\tim\hear2read\Hear2ReadRepository\sapi\Win32\Release\cmu_us_kal.lib" targetlocation="$TARGETDIR$" type="3" generatenativeimage="0" registerassembly="0" runinstallerclass="0" createshortcut="0" runprogram="0" installfilecommand="1" />
+    <filedetails filename="C:\Users\twhit_000\Pictures\Documents\tim\hear2read\Hear2ReadRepository\sapi\Win32\Release\cmulex.lib" targetlocation="$TARGETDIR$" type="3" generatenativeimage="0" registerassembly="0" runinstallerclass="0" createshortcut="0" runprogram="0" installfilecommand="1" />
+    <filedetails filename="C:\Users\twhit_000\Pictures\Documents\tim\hear2read\Hear2ReadRepository\sapi\Win32\Release\flite.lib" targetlocation="$TARGETDIR$" type="3" generatenativeimage="0" registerassembly="0" runinstallerclass="0" createshortcut="0" runprogram="0" installfilecommand="1" />
+    <filedetails filename="C:\Users\twhit_000\Pictures\Documents\tim\hear2read\Hear2ReadRepository\sapi\Win32\Release\usenglish.lib" targetlocation="$TARGETDIR$" type="3" generatenativeimage="0" registerassembly="0" runinstallerclass="0" createshortcut="0" runprogram="0" installfilecommand="1" />
+    <filedetails filename="C:\Users\twhit_000\Pictures\Documents\tim\hear2read\Hear2ReadRepository\sapi\Win32\Release\cmu_cg.lib" targetlocation="$TARGETDIR$" type="3" generatenativeimage="0" registerassembly="0" runinstallerclass="0" createshortcut="0" runprogram="0" installfilecommand="1" />
+    <filedetails filename="C:\Users\twhit_000\Pictures\Documents\tim\hear2read\Hear2ReadRepository\sapi\Win32\Release\FliteCMUGenericCG_Win32.dll" targetlocation="$TARGETDIR$" type="3" generatenativeimage="0" registerassembly="0" runinstallerclass="0" createshortcut="0" runprogram="0" installfilecommand="1" />
+    <filedetails filename="C:\Users\twhit_000\Pictures\Documents\tim\hear2read\Hear2ReadRepository\sapi\Release\FliteCMUGenericCGPS.dll" targetlocation="$TARGETDIR$" type="3" generatenativeimage="0" registerassembly="0" runinstallerclass="0" createshortcut="0" runprogram="0" installfilecommand="1" />
+  </files>
+  <dependencies />
+  <registry />
+  <dialogtheme>
+    <themename>Official</themename>
+  </dialogtheme>
+  <authenticode>
+    <sign>0</sign>
+    <mode>0</mode>
+    <certificatefile />
+    <keyfile />
+    <pfxfile />
+    <productinfourl />
+    <authpassword />
+    <timestampurl />
+    <signall>0</signall>
+  </authenticode>
+  <compression>
+    <compressiontype>8</compressiontype>
+    <encrypt>0</encrypt>
+    <compressionpassword />
+  </compression>
+  <output>
+    <outputtype>0</outputtype>
+    <location />
+    <filename />
+    <calculatefilehash>0</calculatefilehash>
+    <refreshrevisioncode>1</refreshrevisioncode>
+  </output>
+</iasettings>

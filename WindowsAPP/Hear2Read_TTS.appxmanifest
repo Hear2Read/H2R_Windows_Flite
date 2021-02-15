@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="utf-8"?>
+<Package xmlns="http://schemas.microsoft.com/appx/2010/manifest">
+  <Identity Name="Hear2Read.Hear2Read_TTS.installer" 
+            Version="1.0.0.0" 
+            Publisher="CN=Hear2Read, O=Hear2Read" />
+  <Properties>
+    <DisplayName>Hea2Read_TTS_Installer</DisplayName>
+    <PublisherDisplayName>Hear2Read</PublisherDisplayName>
+    <Logo>Icon/H2R_TTS-128.png</Logo>
+  </Properties>
+  <Prerequisites>
+    <OSMinVersion>.2.1</OSMinVersion>
+    <OSMaxVersionTested>10.0.1</OSMaxVersionTested>
+  </Prerequisites>
+  <Resources>
+    <Resource Language="en-us" />
+  </Resources>
+  <Applications>
+    <Application Id="Hea2Read_TTS_Installer" StartPage="">
+      <VisualElements DisplayName="Hea2Read_TTS_Installer" Description="Installation program for the Hea2Read Text-To-Speech Indic language engine."
+           Logo="Icon/H2R_TTS_138.png" SmallLogo="h2r-32x32-win.ico"  
+           ForegroundText="dark" BackgroundColor="#ffffff">
+         <SplashScreen Image="" />
+      </VisualElements>
+    </Application>
+  </Applications>
+</Package>

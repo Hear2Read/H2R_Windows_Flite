@@ -9,6 +9,7 @@ December 2015
 ------------------------------------------------------
 
 To use CLUSTERGEN voices under SAPI,
+NOTE:  When switching between building a win32 solution and X86, it is strongly advised that you Build -> Clean Solution.
 1. Open the "flite_sapi.sln" solution with Visual Studio.
 2. Go to Build -> Batch Build
 3. Choose to build FliteCMUGenericCG in Release mode for x86 and Win32.

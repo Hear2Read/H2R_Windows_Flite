@@ -1,0 +1,15 @@
+C:\Users\twhit_000\Pictures\Documents\tim\hear2read\Hear2ReadRepository\WindowsAPP\VoiceChecker\VoiceChecker\Hear2Read_TTS\bin\Release\Hear2Read_TTS.exe.config
+C:\Users\twhit_000\Pictures\Documents\tim\hear2read\Hear2ReadRepository\WindowsAPP\VoiceChecker\VoiceChecker\Hear2Read_TTS\bin\Release\Hear2Read_TTS.exe
+C:\Users\twhit_000\Pictures\Documents\tim\hear2read\Hear2ReadRepository\WindowsAPP\VoiceChecker\VoiceChecker\Hear2Read_TTS\bin\Release\Hear2Read_TTS.pdb
+C:\Users\twhit_000\Pictures\Documents\tim\hear2read\Hear2ReadRepository\WindowsAPP\VoiceChecker\VoiceChecker\Hear2Read_TTS\obj\Release\Hear2Read_TTS.csprojResolveAssemblyReference.cache
+C:\Users\twhit_000\Pictures\Documents\tim\hear2read\Hear2ReadRepository\WindowsAPP\VoiceChecker\VoiceChecker\Hear2Read_TTS\obj\Release\MainWindow.g.cs
+C:\Users\twhit_000\Pictures\Documents\tim\hear2read\Hear2ReadRepository\WindowsAPP\VoiceChecker\VoiceChecker\Hear2Read_TTS\obj\Release\App.g.cs
+C:\Users\twhit_000\Pictures\Documents\tim\hear2read\Hear2ReadRepository\WindowsAPP\VoiceChecker\VoiceChecker\Hear2Read_TTS\obj\Release\Hear2Read_TTS_MarkupCompile.cache
+C:\Users\twhit_000\Pictures\Documents\tim\hear2read\Hear2ReadRepository\WindowsAPP\VoiceChecker\VoiceChecker\Hear2Read_TTS\obj\Release\Hear2Read_TTS_MarkupCompile.lref
+C:\Users\twhit_000\Pictures\Documents\tim\hear2read\Hear2ReadRepository\WindowsAPP\VoiceChecker\VoiceChecker\Hear2Read_TTS\obj\Release\MainWindow.baml
+C:\Users\twhit_000\Pictures\Documents\tim\hear2read\Hear2ReadRepository\WindowsAPP\VoiceChecker\VoiceChecker\Hear2Read_TTS\obj\Release\Hear2Read_TTS.g.resources
+C:\Users\twhit_000\Pictures\Documents\tim\hear2read\Hear2ReadRepository\WindowsAPP\VoiceChecker\VoiceChecker\Hear2Read_TTS\obj\Release\Hear2Read_TTS.Properties.Resources.resources
+C:\Users\twhit_000\Pictures\Documents\tim\hear2read\Hear2ReadRepository\WindowsAPP\VoiceChecker\VoiceChecker\Hear2Read_TTS\obj\Release\Hear2Read_TTS.csproj.GenerateResource.cache
+C:\Users\twhit_000\Pictures\Documents\tim\hear2read\Hear2ReadRepository\WindowsAPP\VoiceChecker\VoiceChecker\Hear2Read_TTS\obj\Release\Hear2Read_TTS.csproj.CoreCompileInputs.cache
+C:\Users\twhit_000\Pictures\Documents\tim\hear2read\Hear2ReadRepository\WindowsAPP\VoiceChecker\VoiceChecker\Hear2Read_TTS\obj\Release\Hear2Read_TTS.exe
+C:\Users\twhit_000\Pictures\Documents\tim\hear2read\Hear2ReadRepository\WindowsAPP\VoiceChecker\VoiceChecker\Hear2Read_TTS\obj\Release\Hear2Read_TTS.pdb

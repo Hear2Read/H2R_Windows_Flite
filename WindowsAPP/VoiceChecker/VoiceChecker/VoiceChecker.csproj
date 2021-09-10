@@ -60,10 +60,10 @@
     <SignManifests>true</SignManifests>
   </PropertyGroup>
   <PropertyGroup>
-    <ManifestCertificateThumbprint>4E6530860C8D34FEB8F444EA0CFD92852D9EB52E</ManifestCertificateThumbprint>
+    <ManifestCertificateThumbprint>8A7F672D0C79788498B6D1908CA55546D7BD0C07</ManifestCertificateThumbprint>
   </PropertyGroup>
   <PropertyGroup>
-    <ManifestKeyFile>hear2read comodo certificate .pfx</ManifestKeyFile>
+    <ManifestKeyFile>Sectigo_Hear2Read_OVcertificate.pfx</ManifestKeyFile>
   </PropertyGroup>
   <PropertyGroup>
     <SignAssembly>false</SignAssembly>
@@ -86,6 +86,13 @@
   </PropertyGroup>
   <PropertyGroup>
     <DelaySign>true</DelaySign>
+  </PropertyGroup>
+  <PropertyGroup>
+    <ManifestTimestampUrl>http://timestamp.digicert.com</ManifestTimestampUrl>
+  </PropertyGroup>
+  <PropertyGroup>
+    <AssemblyOriginatorKeyFile>
+    </AssemblyOriginatorKeyFile>
   </PropertyGroup>
   <ItemGroup>
     <Reference Include="System" />
@@ -142,7 +149,6 @@
     <None Include="app.manifest">
       <SubType>Designer</SubType>
     </None>
-    <None Include="hear2read comodo certificate .pfx" />
     <None Include="Properties\app.manifest">
       <SubType>Designer</SubType>
     </None>
@@ -150,6 +156,7 @@
       <Generator>SettingsSingleFileGenerator</Generator>
       <LastGenOutput>Settings.Designer.cs</LastGenOutput>
     </None>
+    <None Include="Sectigo_Hear2Read_OVcertificate.pfx" />
   </ItemGroup>
   <ItemGroup>
     <None Include="App.config" />

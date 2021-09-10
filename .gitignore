@@ -1,0 +1,10 @@
+*.log
+*.obj
+**/bin
+**/x64
+**/Win32
+**/win32
+*.bak
+**/.vs
+**/BackupVoiceChecker
+**/Backup

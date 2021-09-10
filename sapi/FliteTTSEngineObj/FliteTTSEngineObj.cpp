@@ -48,6 +48,15 @@ extern "C" {
 
 static cst_val *sapi_tokentowords(cst_item *i);
 
+void
+fixDanda(u_long i, wchar_t *tempText)
+{
+	char outputText[5000];
+	sprintf(outputText, "[TRW] fixDanda: frag = %s\n", tempText);
+	OutputDebugStringA(outputText);
+}
+
+
 int audioStreamChunk(const cst_wave *w, int start, int size, int last, cst_audio_streaming_info *asi)
 {
 	CFliteTTSEngineObj *speechObject = (CFliteTTSEngineObj*)asi->userdata;
@@ -297,7 +306,6 @@ CFliteTTSEngineObj::synth_one_utt()
 {
 	cst_wave *wav;
 	ULONG b;
-
 	if (!(curr_utt && tok_rel && relation_head(tok_rel)))
 		return;
 
@@ -305,6 +313,15 @@ CFliteTTSEngineObj::synth_one_utt()
 	asi = new_audio_streaming_info();
 	asi->asc = audioStreamChunk;
 	asi->userdata = this;
+
+//int tmp;
+//tmp = _CrtSetDbgFlag(_CRTDBG_REPORT_FLAG);
+//tmp = (tmp & 0x0000FFFF) | _CRTDBG_CHECK_CRT_DF | _CRTDBG_ALLOC_MEM_DF | _CRTDBG_LEAK_CHECK_DF;
+//_CrtSetDbgFlag(tmp);
+//char textBuffer[500];
+//sprintf(textBuffer, "[TRW] synth_one_utt: new_audio_streaming_info returned %p\n", asi);
+//OutputDebugStringA(textBuffer);
+//_CrtDumpMemoryLeaks();
 
 	/* Link the vox features into the utterance features so the voice  */
 	/* features will be searched too (after the utt ones)              */
@@ -318,12 +335,11 @@ CFliteTTSEngineObj::synth_one_utt()
 	utt_synth_tokens(curr_utt);
 	
 	send_item_events();
-	
-	delete_audio_streaming_info(asi);
 	delete_utterance(curr_utt);
 	asi = NULL;
 	curr_utt = NULL;
 	tok_rel = NULL;
+//_CrtDumpMemoryLeaks();
 }
 
 void
@@ -524,9 +540,9 @@ CFliteTTSEngineObj::speak_frag()
 	// Dinesh 28 December 2017
 	// this should be removed once Kannada voice mahaprana is fixed
 
-
 	wchar_t * tempText = new wchar_t[curr_frag->ulTextLen +2];
 	ULONG i = 0;
+
 
 	for (; i < curr_frag->ulTextLen; i++)
 	{
@@ -543,6 +559,11 @@ CFliteTTSEngineObj::speak_frag()
 			tempText[i] = 0XC9C;
 			break;
 		
+		case 0x0964:  // Danda
+			OutputDebugStringA("[TRW] found Danda\n");
+			tempText[i] = 0x002E;
+			break;
+
 		default:
 			tempText[i] = curr_frag->pTextStart[i];
 			break;

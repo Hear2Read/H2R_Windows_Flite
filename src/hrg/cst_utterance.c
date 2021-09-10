@@ -39,6 +39,7 @@
 /*************************************************************************/
 #include "cst_alloc.h"
 #include "cst_utterance.h"
+#include <crtdbg.h>
 
 /* utterance functions are the modules that do the meat in synthesis */
 CST_VAL_REGISTER_FUNCPTR(uttfunc,cst_uttfunc)
@@ -56,17 +57,18 @@ cst_utterance *new_utterance()
 
     return u;
 }
-
 void delete_utterance(cst_utterance *u)
 {
     cst_featvalpair *fp;
     if (u)
     {
-	delete_features(u->features);
+
+		delete_features(u->features);
 	delete_features(u->ffunctions);
 	/* Relation vals don't delete their contents */
-	for (fp=u->relations->head; fp; fp=fp->next)
+	for (fp=u->relations->head; fp; fp=fp->next) {
 	    delete_relation(val_relation(fp->val)); 
+	}
 	delete_features(u->relations); 
 	delete_alloc_context(u->ctx);
 	cst_free(u);

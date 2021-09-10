@@ -44,6 +44,7 @@
 #include "cst_string.h"
 #include "cst_wave.h"
 #include "cst_audio.h"
+#include <crtdbg.h>
 
 CST_VAL_REGISTER_TYPE(audio_streaming_info,cst_audio_streaming_info)
 
@@ -61,8 +62,9 @@ cst_audio_streaming_info *new_audio_streaming_info(void)
 
 void delete_audio_streaming_info(cst_audio_streaming_info *asi)
 {
-    if (asi)
-        cst_free(asi);
+	if (asi){
+		cst_free(asi);
+	}
     return;
 }
 

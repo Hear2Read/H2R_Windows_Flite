@@ -38,31 +38,43 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:Hear2Read_TTS_App"
         mc:Ignorable="d"
-        Title="Hear2Read TTS App" Height="425" Width="700" ResizeMode="CanMinimize"
+        Title="Hear2Read TTS App" Height="434.486" Width="700" ResizeMode="CanMinimize"
         Icon="h2r-32x32-win.ico">
     <Grid MinWidth="420">
-        <DockPanel LastChildFill="True">
-            <StackPanel DockPanel.Dock="Top" Background="#b3c6ff" Margin="0,0,0,2" >
-                <DockPanel LastChildFill="True">
+        <Grid.RowDefinitions>
+            <RowDefinition Height="61*"/>
+            <RowDefinition Height="20*"/>
+        </Grid.RowDefinitions>
+        <DockPanel LastChildFill="True" Margin="0,0,-0.4,-0.2" Grid.RowSpan="2">
+            <StackPanel DockPanel.Dock="Top" Background="#b3c6ff" Margin="0,0,-0.0,2" Height="51" >
+                <DockPanel LastChildFill="True" Height="57" Margin="0,0,0.4,0">
                     <Button x:Name="Logo" DockPanel.Dock="Right"  Click="Logo_Click" Background="#b3c6ff" BorderThickness="0">
-                        <Image x:Name="H2RLogo" Source="hear2read-horizontal@2x.png"  Height="36" Width="100" Margin="5 0 "/>
+                        <Image x:Name="H2RLogo" Source="hear2read-horizontal@2x.png"  Height="48" Width="216" Margin="0 0 " RenderTransformOrigin="0.488,0.329"/>
                     </Button>
-                    <TextBlock DockPanel.Dock="Left" Background="#b3c6ff" FontSize="22 " Width="310" Margin="20" Foreground="#FF101FBB">
-                        Hear2Read Indic Language TTS 
+                    <TextBlock DockPanel.Dock="Left" Background="#b3c6ff" FontSize="22 " Width="310" Margin="20,17,20,6.8" Foreground="#FF101FBB" RenderTransformOrigin="0.5,0.5">
+                        <TextBlock.RenderTransform>
+                            <TransformGroup>
+                                <ScaleTransform/>
+                                <SkewTransform/>
+                                <RotateTransform Angle="0.276"/>
+                                <TranslateTransform/>
+                            </TransformGroup>
+                        </TextBlock.RenderTransform>
+                        Hear2Read Indic Language TTS
                     </TextBlock>
 
-                    <TextBlock DockPanel.Dock="Top"/>
+                    <TextBlock DockPanel.Dock="Top" Height="34" Margin="-0.4,0,0,0"/>
                 </DockPanel>
             </StackPanel>
-            <StackPanel DockPanel.Dock="top" Background="#00548b">
-                <DockPanel LastChildFill="True">
+            <StackPanel DockPanel.Dock="top" Background="#00548b" Height="60" Margin="0,0,-0.4,0">
+                <DockPanel LastChildFill="True" Height="54" Margin="0,0,-0.4,0">
                     <StackPanel DockPanel.Dock="Left">
                         <TextBlock FontSize="20" TextWrapping="Wrap" Foreground="White" Margin="10 10" TextAlignment="left">
                          Hear2Read Has Installed these Voices On Your Computer
                         </TextBlock>
                     </StackPanel>
                     <StackPanel DockPanel.Dock="Right">
-                        <Button Height="40" Width="100" Foreground="#FF101FBB" Margin="10 10" Click="Refresh_List">Refresh</Button>
+                        <Button Height="40" Width="100" Foreground="#FF101FBB" Margin="10 10" Click="Refresh_List" RenderTransformOrigin="0.475,0.244" Content="Refresh"/>
                     </StackPanel>
                     <StackPanel DockPanel.Dock="Right">
                     </StackPanel>
@@ -72,7 +84,7 @@
                 <DockPanel  LastChildFill="True">
                     <Button x:Name="GetVoices" DockPanel.Dock="Right" Width="150" Height="30" Margin="90,2" Foreground="#FF101FBB" Click="Get_Voices">Get More Voices Here</Button>
                     <Button x:Name="DemoVoices" DockPanel.Dock="Left" Width="150" Height="30" Margin="90,2" Foreground="#FF101FBB" Click="Demo_Voices">Listen to a Demo Here</Button>
-                   <TextBlock></TextBlock> 
+                    <TextBlock></TextBlock>
                 </DockPanel>
             </StackPanel>
             <StackPanel DockPanel.Dock="Bottom" Background="#00548B">

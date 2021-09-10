@@ -218,7 +218,7 @@ cst_utterance *flite_do_synth(cst_utterance *u,
 cst_utterance *flite_synth_text(const char *text, cst_voice *voice)
 {
     cst_utterance *u;
-
+OutputDebugStringA("[TRW] flite_synth_text:  Got Here\n");
     u = new_utterance();
     utt_set_input_text(u,text);
     return flite_do_synth(u, voice, utt_synth);

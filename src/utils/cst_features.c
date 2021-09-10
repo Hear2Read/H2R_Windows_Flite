@@ -40,6 +40,7 @@
 
 #include "cst_error.h"
 #include "cst_features.h"
+#include <crtdbg.h>
 
 CST_VAL_REGISTER_TYPE(features,cst_features)
 
@@ -66,7 +67,7 @@ cst_features *new_features(void)
     f = cst_alloc(cst_features,1);
     f->head = NULL;
     f->ctx = NULL;
-    return f;
+	return f;
 }
 
 cst_features *new_features_local(cst_alloc_context ctx)
@@ -82,14 +83,14 @@ cst_features *new_features_local(cst_alloc_context ctx)
 void delete_features(cst_features *f)
 {
     cst_featvalpair *n, *np;
-
     if (f)
     {
 	for (n=f->head; n; n=np)
 	{
-	    np = n->next;
-	    delete_val(n->val);
-	    cst_local_free(f->ctx,n);
+    np = n->next;
+	delete_val(n->val);
+
+	cst_local_free(f->ctx,n);
 	}
         delete_val(f->owned_strings);
 	cst_local_free(f->ctx,f);
@@ -236,6 +237,7 @@ void feat_set_string(cst_features *f, const char *name, const char *v)
 
 void feat_set(cst_features *f, const char* name, const cst_val *val)
 {
+
     cst_featvalpair *n;
     n = feat_find_featpair(f,name);
 
@@ -246,15 +248,15 @@ void feat_set(cst_features *f, const char* name, const cst_val *val)
     }
     else if (n == NULL)
     {   /* first reference to this feature so create new fpair */
-	cst_featvalpair *p;
+		cst_featvalpair *p;
 	p = (cst_featvalpair *)cst_local_alloc(f->ctx, sizeof(*p));
 	p->next = f->head;
         p->name = name;
 	p->val = val_inc_refcount(val);
 	f->head = p;
-    }
+	}
     else
-    {
+	{
 	delete_val(n->val);
 	n->val = val_inc_refcount(val);
     }

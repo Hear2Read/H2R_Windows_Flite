@@ -1,5 +1,0 @@
-C:\Users\twhit\OneDrive\Documents\tim\hear2read\tempbackup\WindowsAPP\VoiceChecker\VoiceChecker\obj\Debug\VoiceChecker.csprojAssemblyReference.cache
-C:\Users\twhit\OneDrive\Documents\tim\hear2read\tempbackup\WindowsAPP\VoiceChecker\VoiceChecker\obj\Debug\MainWindow.g.cs
-C:\Users\twhit\OneDrive\Documents\tim\hear2read\tempbackup\WindowsAPP\VoiceChecker\VoiceChecker\obj\Debug\App.g.cs
-C:\Users\twhit\OneDrive\Documents\tim\hear2read\tempbackup\WindowsAPP\VoiceChecker\VoiceChecker\obj\Debug\Hear2Read_TTS_MarkupCompile.cache
-C:\Users\twhit\OneDrive\Documents\tim\hear2read\tempbackup\WindowsAPP\VoiceChecker\VoiceChecker\obj\Debug\Hear2Read_TTS_MarkupCompile.lref

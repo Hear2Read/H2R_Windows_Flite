@@ -207,14 +207,17 @@ cst_utterance *default_tokenization(cst_utterance *u)
     cst_tokenstream *fd;
     cst_item *t;
     cst_relation *r;
-
+char textStringOutput[1000];
     text = utt_input_text(u);
+OutputDebugStringA("[TRW] default_tokenization:  got here");
+sprintf(textStringOutput, "[TRW] default_tokenization: text = %s\n", text);
+OutputDebugStringA(textStringOutput);
     r = utt_relation_create(u,"Token");
     fd = ts_open_string(text,
-	get_param_string(u->features,"text_whitespace",NULL),
-	get_param_string(u->features,"text_singlecharsymbols",NULL),
-	get_param_string(u->features,"text_prepunctuation",NULL),
-        get_param_string(u->features,"text_postpunctuation",NULL));
+		get_param_string(u->features,"text_whitespace",NULL),
+		get_param_string(u->features,"text_singlecharsymbols",NULL),
+		get_param_string(u->features,"text_prepunctuation",NULL),
+		get_param_string(u->features,"text_postpunctuation",NULL));
     
     while(!ts_eof(fd))
     {

@@ -48,15 +48,6 @@ extern "C" {
 
 static cst_val *sapi_tokentowords(cst_item *i);
 
-void
-fixDanda(u_long i, wchar_t *tempText)
-{
-	char outputText[5000];
-	sprintf(outputText, "[TRW] fixDanda: frag = %s\n", tempText);
-	OutputDebugStringA(outputText);
-}
-
-
 int audioStreamChunk(const cst_wave *w, int start, int size, int last, cst_audio_streaming_info *asi)
 {
 	CFliteTTSEngineObj *speechObject = (CFliteTTSEngineObj*)asi->userdata;
@@ -291,11 +282,12 @@ CFliteTTSEngineObj::send_sentence_event(int fpos)
 	SPEVENT evt;
 
 	SpClearEvent(&evt);
+
 	evt.eEventId = SPEI_SENTENCE_BOUNDARY;
 	evt.elParamType = SPET_LPARAM_IS_UNDEFINED;
 	evt.ullAudioStreamOffset = bcount;
-	evt.lParam = sentence_start;
-	evt.wParam = fpos - sentence_start;
+	evt.lParam = sentence_start;        // character position within the current text input stream of the sentence being synthesized.	
+	evt.wParam = fpos - sentence_start; // character length of the sentence including punctuation in the current input stream being synthesized.
 	site->AddEvents(&evt, 1);
 
 	sentence_start = fpos;
@@ -314,15 +306,6 @@ CFliteTTSEngineObj::synth_one_utt()
 	asi->asc = audioStreamChunk;
 	asi->userdata = this;
 
-//int tmp;
-//tmp = _CrtSetDbgFlag(_CRTDBG_REPORT_FLAG);
-//tmp = (tmp & 0x0000FFFF) | _CRTDBG_CHECK_CRT_DF | _CRTDBG_ALLOC_MEM_DF | _CRTDBG_LEAK_CHECK_DF;
-//_CrtSetDbgFlag(tmp);
-//char textBuffer[500];
-//sprintf(textBuffer, "[TRW] synth_one_utt: new_audio_streaming_info returned %p\n", asi);
-//OutputDebugStringA(textBuffer);
-//_CrtDumpMemoryLeaks();
-
 	/* Link the vox features into the utterance features so the voice  */
 	/* features will be searched too (after the utt ones)              */
 	feat_link_into(curr_vox->features, curr_utt->features);
@@ -339,7 +322,6 @@ CFliteTTSEngineObj::synth_one_utt()
 	asi = NULL;
 	curr_utt = NULL;
 	tok_rel = NULL;
-//_CrtDumpMemoryLeaks();
 }
 
 void
@@ -357,7 +339,8 @@ utt_break(cst_tokenstream *ts, const char *token, cst_relation *tokens)
     /* so it shouldn't be here                                */
     const char *postpunct;
     const char *ltoken;
-    cst_item *tail = relation_tail(tokens);
+
+	cst_item *tail = relation_tail(tokens);
 
     if (!item_feat_present(tail, "punc"))
 	    return FALSE;
@@ -365,24 +348,20 @@ utt_break(cst_tokenstream *ts, const char *token, cst_relation *tokens)
     ltoken = item_name(tail);
     postpunct = item_feat_string(tail, "punc");
 
-    if (strchr(ts->whitespace,'\n') != cst_strrchr(ts->whitespace,'\n'))
+	if (strchr(ts->whitespace,'\n') != cst_strrchr(ts->whitespace,'\n'))
 	 /* contains two new lines */
 	 return TRUE;
     else if (strchr(postpunct,':') ||
 	     strchr(postpunct,'?') ||
 	     strchr(postpunct,'!'))
 	return TRUE;
-    else if (strchr(postpunct,'.') &&
-	     (strlen(ts->whitespace) > 1) &&
-	     strchr("ABCDEFGHIJKLMNOPQRSTUVWXYZ",token[0]))
-	return TRUE;
-    else if (strchr(postpunct,'.') &&
-	     /* next word starts with a capital */
-	     strchr("ABCDEFGHIJKLMNOPQRSTUVWXYZ",token[0]) &&
-	     !strchr("ABCDEFGHIJKLMNOPQRSTUVWXYZ",ltoken[strlen(ltoken)-1]))
-	return TRUE;
-    else
-	return FALSE;
+	else if (strchr(postpunct, '.') &&
+		(strlen(ts->whitespace) > 1) ) {
+		return TRUE;
+	}
+	else {
+		return FALSE;
+	}
 }
 
 static cst_val *
@@ -539,10 +518,8 @@ CFliteTTSEngineObj::speak_frag()
 	size_t len;
 	// Dinesh 28 December 2017
 	// this should be removed once Kannada voice mahaprana is fixed
-
 	wchar_t * tempText = new wchar_t[curr_frag->ulTextLen +2];
 	ULONG i = 0;
-
 
 	for (; i < curr_frag->ulTextLen; i++)
 	{
@@ -560,8 +537,13 @@ CFliteTTSEngineObj::speak_frag()
 			break;
 		
 		case 0x0964:  // Danda
-			OutputDebugStringA("[TRW] found Danda\n");
-			tempText[i] = 0x002E;
+			tempText[i] = 0X002E; // replace with a period
+			// Make sure there are now proceeding spaces
+			int j;
+			for (j = i - 1; j > 0 && tempText[j] == 0x0020; j--) {
+				tempText[j] = tempText[j + 1];
+				tempText[j + 1] = 0x0020;
+			}
 			break;
 
 		default:
@@ -630,7 +612,7 @@ CFliteTTSEngineObj::spell_frag()
 		int len;
 
 		if (!iswspace(curr_frag->pTextStart[i])) {
-								len = WideCharToMultiByte(CP_UTF8, 0, curr_frag->pTextStart + i, 1, NULL, 0, NULL, NULL);
+						len = WideCharToMultiByte(CP_UTF8, 0, curr_frag->pTextStart + i, 1, NULL, 0, NULL, NULL);
 					c= cst_alloc(char, len + 1);
 					WideCharToMultiByte(CP_UTF8, 0, curr_frag->pTextStart + i , 1, c, len, NULL, NULL);
 					c[len] = 0x00;
@@ -781,10 +763,11 @@ CFliteTTSEngineObj::Speak(DWORD dwSpeakFlags,
 		}
 	}
 
-	if (tok_rel && relation_tail(tok_rel))
+	if (tok_rel && relation_tail(tok_rel)) {
 		send_sentence_event(item_feat_int(relation_tail(tok_rel), "token_pos")
-				    + item_feat_int(relation_tail(tok_rel),
-						    "token_length"));
+			              + item_feat_int(relation_tail(tok_rel), "token_length"));
+	}
+
 	synth_one_utt();
 
 	delete_utterance(curr_utt);
